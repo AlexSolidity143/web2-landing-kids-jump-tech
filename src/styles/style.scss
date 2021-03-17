@@ -1,24 +1,14 @@
-@font-face {
-  font-family: "Lifehack Sans Medium";
-  src: url("../fonts/lifehackMedium/DearType - Lifehack Sans Medium.eot");
-  src: local("☺"), url("../fonts/lifehackMedium/DearType\ -\ Lifehack\ Sans\ Medium.woff") format("woff"), url("../fonts/lifehackMedium/DearType - Lifehack Sans Medium.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lifehack Sans Bold";
-  src: url("../fonts/lifehackBold/DearType\ -\ Lifehack\ Sans\ Bold.eot");
-  src: local("☺"), url("../fonts/lifehackBold/DearType\ -\ Lifehack\ Sans\ Bold.woff") format("woff"), url("../fonts/lifehackBold/DearType - Lifehack Sans Bold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
+@import "./fonts.scss";
 @import "./base/normalize.scss";
 @import "./base/nullstyle.scss";
 @import "./style/main.scss";
 @import "./style/advantages.scss";
 @import "./style/games.scss";
+
+
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 body {
   font-family: "Dosis", sans-serif;
@@ -28,14 +18,3 @@ body {
 .body_lock {
   overflow: hidden;
 }
-
-/* .container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
-  margin: 0 auto;
-} */
-
-
-
-

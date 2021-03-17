@@ -386,6 +386,7 @@ $white: #FFFFFF;
         }
         .nav__cross {
           position: absolute;
+          cursor: pointer;
           top: calc(50vh - 7px);
           right: 26px;
           display: block;

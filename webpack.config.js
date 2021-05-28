@@ -1,5 +1,12 @@
 const path = require('path');
 
+//HTML, Pug
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
+
+//SCSS
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -8,6 +15,14 @@ module.exports = {
   },
   module: {
     rules: [
+      //HTML
+      {
+        test: /\.pug$/,
+        loader: "pug-loader",
+        options: {
+          pretty: true
+        },
+      },
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
@@ -18,10 +33,11 @@ module.exports = {
           }
         }
       },
+      //SCSS
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           "css-loader",
           {
             loader: "postcss-loader",
@@ -35,17 +51,40 @@ module.exports = {
               },
             },
           },
-          "sass-loader"
-        ],
+          "sass-loader",
+        ]
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
+      //Fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        loader: 'file-loader',
+        options: {
+          name: '/[name]/[name].[ext]',
+          outputPath: 'static/font/',
+        },
+      },
+      //Imgs
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'static/img/',
+        },
       },
     ]
-  }
+  },
+  plugins: [
+    //HTML
+    new HtmlWebpackPlugin({
+      template: "./src/index.pug",
+      filename: "index.html",
+      minify: true
+    }),
+    new HtmlWebpackPugPlugin(),
+    //SCC
+    new MiniCssExtractPlugin({
+      filename: "style.css",
+    }),
+  ]  
 };

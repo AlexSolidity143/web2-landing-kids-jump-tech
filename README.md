@@ -3,4 +3,4 @@
 Pug/SCSS/JS  
 Проект упакован с помощью Webpack (babel, SCSS-loader, autoprefixer)  
 
-Посмотреть работу сайта: https://sitecreator143.github.io/site-landing-kids-jump-tech/dist
+Посмотреть работу сайта: https://alexsolidity143.github.io/web2-landing-kids-jump-tech/dist
